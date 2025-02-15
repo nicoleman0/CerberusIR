@@ -1,4 +1,4 @@
-# CerberusIR - Automated Security Incident Response Tool
+# CerberusIR - lightweight IR tool
 
 ## Overview
 CerberusIR is a lightweight automated incident response tool designed to quickly detect, analyze, and mitigate security threats in real-time. 
