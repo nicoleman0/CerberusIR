@@ -1,5 +1,8 @@
 import requests
 import os # os is a module that provides a way to interact with the environment variables
+from dotenv import load_dotenv
+
+load_dotenv()
 
 API_KEY = os.getenv("ABUSEIPDB_API_KEY") # get the API key from the environment variable
 
@@ -23,7 +26,6 @@ def check_ip(ip_address):
 
     # Test it.
 
-    ip_to_check = "8.8.8.8"
-    result = check_ip(ip_to_check)
-    print(result)
-    
+ip_to_check = "8.8.8.8"
+result = check_ip(ip_to_check)
+print(result)
