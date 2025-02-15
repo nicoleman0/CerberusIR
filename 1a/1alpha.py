@@ -35,7 +35,7 @@ def check_ip(ip_address):
 
 
 # Test with some IP addresses
-test_ips = ["185.220.101.3", "185.220.101.1"]
+test_ips = ["185.220.101.3", "185.220.101.1", "8.8.8.8", "1.1.1.1"]
 
 for ip in test_ips:
     check_ip(ip)
