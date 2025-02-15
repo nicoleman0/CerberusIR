@@ -21,7 +21,7 @@ def check_ip(ip_address):
         abuse_score = data["abuseConfidenceScore"] # get the abuse score
 
         # Categorize the IP based on the abuse score
-        if abuse_score > 20:
+        if abuse_score < 20:
             print(f"✅ {ip_address} is SAFE (Abuse Score: {abuse_score})")
         elif 20 <= abuse_score < 75:
             print(f"⚠️ {ip_address} is SUSPICIOUS (Abuse Score: {abuse_score})")
@@ -35,7 +35,7 @@ def check_ip(ip_address):
 
 
 # Test with some IP addresses
-test_ips = ["8.8.8.8", "1.1.1.1", "185.220.101.1"]
+test_ips = ["185.220.101.3", "185.220.101.1"]
 
 for ip in test_ips:
     check_ip(ip)
