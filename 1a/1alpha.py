@@ -9,6 +9,25 @@ API_KEY = os.getenv("ABUSEIPDB_API_KEY") # get the API key from the environment 
 if not API_KEY:
     raise ValueError("API Key not found. Set ABUSEIPDB_API_KEY environment variable.")
 
+def log_bad_ip(ip_address, abuse_score, country, isp):
+    """Logs suspicious or malicious IPs into a csv file"""
+    file_name = "bad_ips.csv"
+
+
+    # Check if the file exists
+    file_exists = os.path.isfile(file_name)
+
+    # Open csv file in append mode
+    with open(file_name, mode="a", newline="") as file:
+        writer = csv.writer(file)
+
+        # Write the header if the file is empty
+        if not file_exists:
+            writer.writerow(["IP Address", "Abuse Score", "Country", "ISP"])
+
+        # Write the bad IP entry
+        writer.writerow([ip_address, abuse_score, country, isp])
+
 def check_ip(ip_address):
     url = "https://api.abuseipdb.com/api/v2/check"
     headers = {"Key": API_KEY, "Accept": "application/json"}
