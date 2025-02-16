@@ -1,5 +1,7 @@
 import requests
-import os # os is a module that provides a way to interact with the environment variables
+import os
+import csv
+import subprocess
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -27,6 +29,19 @@ def log_bad_ip(ip_address, abuse_score, country, isp):
 
         # Write the bad IP entry
         writer.writerow([ip_address, abuse_score, country, isp])
+
+def block_ip(ip_address):
+    """Blocks malicious IPs using system firewall commands."""
+    try:
+        if os.name == "nt":  # Windows
+            cmd = f'netsh advfirewall firewall add rule name="Block {ip_address}" dir=in action=block remoteip={ip_address}'
+        else:  # Linux/macOS
+            cmd = f"sudo iptables -A INPUT -s {ip_address} -j DROP"
+
+        subprocess.run(cmd, shell=True, check=True)
+        print(f"🔥 BLOCKED: {ip_address} has been blocked by the firewall!")
+    except Exception as e:
+        print(f"⚠️ Failed to block {ip_address}: {e}")
 
 def check_ip(ip_address):
     url = "https://api.abuseipdb.com/api/v2/check"
