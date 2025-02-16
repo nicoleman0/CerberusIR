@@ -6,10 +6,19 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv("ABUSEIPDB_API_KEY") # get the API key from the environment variable
+def save_api_key(api_key):
+    """Saves the API key to the .env file."""
+    with open(".env", "w") as env_file:
+        env_file.write(f"ABUSEIPDB_API_KEY={api_key}\n")
+    print("✅ API Key saved to .env file!")
+
+# Get the API key from .env or ask the user
+API_KEY = os.getenv("ABUSEIPDB_API_KEY")
 
 if not API_KEY:
-    raise ValueError("API Key not found. Set ABUSEIPDB_API_KEY environment variable.")
+    print("🔑 API Key not found. Please enter your AbuseIPDB API Key:")
+    API_KEY = input("Enter API Key: ").strip()
+    save_api_key(API_KEY)
 
 def log_bad_ip(ip_address, abuse_score, country, isp):
     """Logs suspicious or malicious IPs into a csv file"""
