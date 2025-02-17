@@ -6,9 +6,9 @@ CerberusIR is a lightweight automated incident response tool designed to quickly
 Built with Python, it helps cybersecurity professionals and IT teams respond to potential breaches with efficiency and accuracy.
 
 ## Features
-- **Automated Threat Detection** – Identifies suspicious activity using log analysis and behavior monitoring.
-- **Rapid Incident Triage** – Categorizes threats based on severity and impact.
-- **Mitigation Actions** – Executes predefined response actions such as blocking IPs, quarantining files, or alerting administrators.
+- **Automated Threat Detection** – Cerberus is adept at identifying suspicious activity using log analysis and behavior monitoring.
+- **Rapid Incident Triage** – Cerberus excels at categorizing threats based on severity and impact.
+- **Mitigation Actions** – Cerberus executes predefined response actions such as blocking IPs and quarantining files.
 
 ## Installation
 ### Prerequisites
