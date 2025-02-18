@@ -7,6 +7,20 @@ from datetime import datetime
 
 load_dotenv()
 
+def get_ip_addresses():
+    """Prompts the user to enter IP addresses to scan."""
+    ip_addresses = []
+    print("Enter IP addresses to scan (PLEASE type 'done' when finished):")
+    while True:
+        ip = input("IP Address: ").strip()
+        if ip.lower() == 'done':
+            break
+        ip_addresses.append(ip)
+    return ip_addresses
+
+# Get IP addresses from the user
+ip_addresses_to_scan = get_ip_addresses()
+
 def save_api_key(api_key):
     """Saves the API key to the .env file."""
     with open(".env", "w") as env_file:
