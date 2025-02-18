@@ -35,20 +35,10 @@ Run the tool using:
 ```bash
 python cerberusir.py
 ```
+## API Key
+In order to properly use CerberusIR, you must have an API key.
 
-### Example Commands
-- Scan logs for threats:
-  ```bash
-  python cerberusir.py --scan /var/log/syslog
-  ```
-- Execute an automated response:
-  ```bash
-  python cerberusir.py --respond incident_id
-  ```
-- Generate a report:
-  ```bash
-  python cerberusir.py --report
-  ```
+To get the API key needed to run CerberusIR, visit: https://www.abuseipdb.com/
 
 ## Roadmap
 - [ ] Add integration with SIEM solutions
